@@ -10,13 +10,11 @@ namespace MyFunctionV2
     public static class HelloWorld
     {
         [FunctionName("HelloWorld")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
+        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequest req, ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger HelloWorld processed a request.");
 
-            return new OkObjectResult("Hello, world");
+            return new OkObjectResult("Hello again, World");
         }
     }
 }
